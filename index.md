@@ -125,6 +125,14 @@
 						<option>800</option>
 					</select>
 				</div>
+
+				<div class="row choix">
+					<label class="col-12 selectlabel" for="coutre">Coutre de guidage</label>
+					<select class="col selectbox" id="coutre" name="coutre">
+						<option>Sans</option>
+						<option>Avec</option>
+					</select>
+				</div>
 			</div>
 			<div class="col-4 my-auto ml-2">
 				<div class="textres">Largeur de poutre</div>
@@ -199,6 +207,7 @@
 			var rang = parseInt($('#rang').val());
 			var ecart = parseInt($('#ecart').val());
 			var type = $('#type').val();
+			var coutre = $('#coutre').val();
 			if (dent == 40) {
 				if (optav !== 0) {
 					$('#optav').val(0);
@@ -287,6 +296,9 @@
 					prixtot = prixrampe[i];
 					i = rampe.length;
 				}
+			}
+			if (coutre == "Avec") {
+				prixtot += 1131;
 			}
 			prixtot += (rang + 1) * prix;
 			prixtot -= prixmoins;
