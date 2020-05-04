@@ -131,7 +131,7 @@
 				<div class="textres" id="largbin">3.5 m</div>
 				<hr />
 				<div class="textres">Prix de la bineuse</div>
-				<div class="textres" id="prixbin">8277 €</div>
+				<div class="textres" id="prixbin">8899 €</div>
 			</div>
 		</div>
 		
@@ -187,6 +187,7 @@
 		var nb = 0;
 		$('#rang').val(5);
 		$('#ecart').val(500);
+		$('#type').val('Repliable');
 		$('select').on('change',function(){
 			var prix = 0;
 			var prixtot = 0;
