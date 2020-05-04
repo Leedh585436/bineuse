@@ -174,8 +174,7 @@
 				</div>
 			</div>
 			<div class="col-4 ml-2">
-				<div class="textres">Prix du module</div>
-				<div class="textres" id="prix">776 €</div>
+				
 				<center><img class="imageres" id="image" src="images/m20.png"></center>
 			</div>
 		</div>
@@ -267,7 +266,7 @@
 			prix *= 100;
 			prix = parseInt(prix);
 			prix /= 100;
-			$('#prix').text(prix+' €');
+			
 
 			var larg = ecart * rang / 100;
 			larg = parseInt(larg);
@@ -293,7 +292,11 @@
 			prixtot = parseInt(prixtot);
 
 			$('#largbin').text(larg+' m');
-			$('#prixbin').text(prixtot+' €');
+			if (type == 'Fixe') {
+				$('#prixbin').text('Nous consulter');
+			} else {
+				$('#prixbin').text(prixtot+' €');
+			}
 
 		});
 	});
