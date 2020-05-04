@@ -305,7 +305,7 @@
 			prixtot = parseInt(prixtot);
 
 			$('#largbin').text(larg+' m');
-			if (type == 'Fixe') {
+			if (type == 'Fixe' || larg > 6.6) {
 				$('#prixbin').text('Nous consulter');
 			} else {
 				$('#prixbin').text(prixtot+' €');
