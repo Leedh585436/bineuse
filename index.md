@@ -107,6 +107,9 @@
 			<button class="buttonflag">
 				<img class="imageflag" id="flages" src="images/flag-es.png">
 			</button>
+			<button class="buttonflag">
+				<img class="imageflag" id="flagen" src="images/flag-en.png">
+			</button>
 		</center>
 		<div class="texttitle" id="titre2">Caracteristiques generales</div>
 		<div class="row justify-content-center cargen">
@@ -303,7 +306,7 @@
 			larg = parseInt(larg);
 			larg += 2;
 			larg /= 10;
-			if (type == 'Fixe' || type == 'Fija') {
+			if (type == 'Fixe' || type == 'Fija' || type == 'Fixed') {
 				var rampe = [3.5,4.2,5,6,6.6];
 				var prixrampe = [3677,3731,3783,3844,3881];
 
@@ -318,7 +321,7 @@
 					i = rampe.length;
 				}
 			}
-			if (coutre == "Avec" || coutre == 'Con') {
+			if (coutre == "Avec" || coutre == 'Con' || coutre == 'With') {
 				prixtot += 1131;
 			}
 			prixtot += (rang + 1) * prix;
@@ -326,12 +329,15 @@
 			prixtot = parseInt(prixtot);
 
 			$('#largbin').text(larg+' m');
-			if (type == 'Fixe' || type == 'Fija' || larg > 6.6) {
+			if (type == 'Fixe' || type == 'Fija' || type == 'Fixed' || larg > 6.6) {
 				if (type == 'Fixe') {
 					$('#prixbin').text('Nous consulter');
 				}
 				if (type == 'Fija') {
 					$('#prixbin').text('Contáctenos');
+				}
+				if (type == 'Fixed') {
+					$('#prixbin').text('Contact us');
 				}
 			} else {
 				$('#prixbin').text(prixtot+' €');
@@ -366,7 +372,7 @@
 			$('#kav').text('Doigt Kress');
 			$('#kar').text('Doigt Kress');
 			var prixbin = $('#prixbin').text();
-			if (prixbin == 'Contáctenos') {
+			if (prixbin == 'Contáctenos' || prixbin == 'Contact us') {
 				$('#prixbin').text('Nous consulter');
 			}
 		});
@@ -398,8 +404,40 @@
 			$('#kav').text('Dedos Kress');
 			$('#kar').text('Dedos Kress');
 			var prixbin = $('#prixbin').text();
-			if (prixbin == 'Nous consulter') {
+			if (prixbin == 'Nous consulter' || prixbin == 'Contact us') {
 				$('#prixbin').text('Contáctenos');
+			}
+		});
+		$('#flagen').on('click',function(){
+			$('#titre1').text('Cultivator configurator');
+			$('#titre2').text('Main features');
+			$('#titre3').text('Cultivator model');
+			$('#titre4').text('Number of rows');
+			$('#titre5').text('Inter row spacing');
+			$('#titre6').text('Disc coulter');
+			$('#titre7').text('Width');
+			$('#titre8').text('Cultivator price');
+			$('#titre9').text('Unit selection');
+			$('#titre10').text('Number of tines');
+			$('#titre11').text('Type of tines');
+			$('#titre12').text('Front option');
+			$('#titre13').text('Back option');
+			$('#titre14').text('Fixed');
+			$('#titre15').text('Folding');
+			$('#titre16').text('Without');
+			$('#titre17').text('With');
+			$('#titre18').text('3 (Rows <= 600)');
+			$('#titre19').text('5 (Rows > 600)');
+			$('#titre20').text("32x10 duckfoot");
+			$('#titre21').text('Shovel');
+			$('#titre22').text('Lelièvre blade');
+			$('#titre23').text('Following harrow');
+			$('#pav').text('Plant protection disc');
+			$('#kav').text('Kress fingerweeder');
+			$('#kar').text('Kress fingerweeder');
+			var prixbin = $('#prixbin').text();
+			if (prixbin == 'Contáctenos' || prixbin == 'Nous consulter') {
+				$('#prixbin').text('Contact us');
 			}
 		});
 	});
