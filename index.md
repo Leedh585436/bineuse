@@ -69,7 +69,7 @@
 		.buttonflag {
 			border:0;
 			background-color: white;
-			cursor: pointer;
+			cursor: url(images/p20.png), pointer;
 		}
 
 		.selectlabel {
@@ -86,7 +86,7 @@
 			margin-right: 1em;
 			padding: 3px;
 			padding-left: 15px;
-			cursor: pointer;
+			cursor: url(images/p48.png), pointer;
 			border-radius: 40px;
 			background-color: #dddddd;
 			color: black;
