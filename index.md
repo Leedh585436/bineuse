@@ -161,9 +161,6 @@
 			<div class="col-4 my-auto ml-2">
 				<div class="textres" id="titre7">Largeur de poutre</div>
 				<div class="textres" id="largbin">3.5 m</div>
-				<hr />
-				<div class="textres" id="titre8">Prix de la bineuse</div>
-				<div class="textres" id="prixbin">8899 €</div>
 			</div>
 		</div>
 		
@@ -174,7 +171,7 @@
 					<label class="col-12 selectlabel" for="nbdent" id="titre10">Nombre de dents</label>
 					<select class="col selectbox" id="nbdent" name="nbdent">
 						<option value="20" id="titre18">3 (Rang <= 600)</option>
-						<option value="10" id="titre19">5 (Rang > 600)</option>
+						<option value="10" id="titre19">5</option>
 					</select>
 				</div>
 				
@@ -221,8 +218,6 @@
 		$('#ecart').val(500);
 		$('#type').val('Repliable');
 		$('select').on('change',function(){
-			var prix = 0;
-			var prixtot = 0;
 			$('option').prop('disabled',false);
 			var dent = parseInt($('#dent').val());
 			var optav = parseInt($('#optav').val());
@@ -259,48 +254,10 @@
 			if (nbdent == 10) {
 				var nbd = 5;
 				var dentmoins = 4;
-				prix += 692;
 			} else {
 				var nbd =3;
 				var dentmoins = 2;
-				prix += 686.7;
 			}
-			if (dent == 0) {
-				prix += 28 * nbd;
-				var prixmoins = 28 * dentmoins;
-			} else if (dent == 20) {
-				prix += 77.64 * nbd;
-				var prixmoins = 77.64 * dentmoins;
-			} else {
-				if (nbd == 5) {
-					prix += 489.5;
-					var prixmoins = 194;
-				} else {
-					prix += 463;
-					var prixmoins = 176;
-				}
-			}
-			if (optav == 3){
-				prix += 247.83;
-				prixmoins += 247.83;
-			} else if (optav == 6) {
-				prix += 1029.83;
-				prixmoins += 1029.83;
-			}
-			if (optar == 1) {
-				prix += 1046;
-				prixmoins += 1046;
-			} else if (optar == 2) {
-				if (nbd == 5){
-					prix += 128.44;
-				} else {
-					prix += 104.125;
-				}
-			}
-			prix *= 100;
-			prix = parseInt(prix);
-			prix /= 100;
-			
 
 			var larg = ecart * rang / 100;
 			larg = parseInt(larg);
@@ -308,40 +265,18 @@
 			larg /= 10;
 			if (type == 'Fixe' || type == 'Fija' || type == 'Fixed') {
 				var rampe = [3.5,4.2,5,6,6.6];
-				var prixrampe = [3677,3731,3783,3844,3881];
 
 			} else {
 				var rampe = [4.2,5,6,6.6];
-				var prixrampe = [4331,4383,4444,4481];
 			}
 			for (var i = 0; i < rampe.length; i++) {
 				if (larg <= rampe[i]) {
 					larg = rampe[i];
-					prixtot = prixrampe[i];
 					i = rampe.length;
 				}
 			}
-			if (coutre == "Avec" || coutre == 'Con' || coutre == 'With') {
-				prixtot += 1131;
-			}
-			prixtot += (rang + 1) * prix;
-			prixtot -= prixmoins;
-			prixtot = parseInt(prixtot);
 
 			$('#largbin').text(larg+' m');
-			if (type == 'Fixe' || type == 'Fija' || type == 'Fixed' || larg > 6.6) {
-				if (type == 'Fixe') {
-					$('#prixbin').text('Nous consulter');
-				}
-				if (type == 'Fija') {
-					$('#prixbin').text('Contáctenos');
-				}
-				if (type == 'Fixed') {
-					$('#prixbin').text('Contact us');
-				}
-			} else {
-				$('#prixbin').text(prixtot+' €');
-			}
 
 		});
 		$('#flagfr').on('click',function(){
@@ -371,10 +306,7 @@
 			$('#pav').text('Protège plant');
 			$('#kav').text('Doigt Kress');
 			$('#kar').text('Doigt Kress');
-			var prixbin = $('#prixbin').text();
-			if (prixbin == 'Contáctenos' || prixbin == 'Contact us') {
-				$('#prixbin').text('Nous consulter');
-			}
+			
 		});
 		$('#flages').on('click',function(){
 			$('#titre1').text('Configurador de binadora');
@@ -403,10 +335,7 @@
 			$('#pav').text('Protector de plantas');
 			$('#kav').text('Dedos Kress');
 			$('#kar').text('Dedos Kress');
-			var prixbin = $('#prixbin').text();
-			if (prixbin == 'Nous consulter' || prixbin == 'Contact us') {
-				$('#prixbin').text('Contáctenos');
-			}
+			
 		});
 		$('#flagen').on('click',function(){
 			$('#titre1').text('Cultivator configurator');
@@ -435,10 +364,7 @@
 			$('#pav').text('Plant protection disc');
 			$('#kav').text('Kress fingerweeder');
 			$('#kar').text('Kress fingerweeder');
-			var prixbin = $('#prixbin').text();
-			if (prixbin == 'Contáctenos' || prixbin == 'Nous consulter') {
-				$('#prixbin').text('Contact us');
-			}
+			
 		});
 	});
 </script>
